@@ -1,10 +1,10 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { HashRouter, Routes, Route, Link } from "react-router-dom";
 import { TypesPage, ItemsPage, ItemPage } from "./pages";
 
 export const App: React.FC = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div style={{ padding: 24, fontFamily: "system-ui, sans-serif" }}>
         <header style={{ marginBottom: 16 }}>
           <h1>
@@ -22,6 +22,6 @@ export const App: React.FC = () => {
           </Routes>
         </main>
       </div>
-    </BrowserRouter>
+  </HashRouter>
   );
 };
