@@ -25,7 +25,11 @@ type Manifest = {
 };
 
 let manifestCache: Manifest | null = null;
-const STORAGE_PATH = (typeof import.meta !== 'undefined' && (import.meta as any).env && (import.meta as any).env.VITE_STORAGE_PATH) || '/storage';
+// Prefer explicit VITE_STORAGE_PATH (set for special deploys). Otherwise use Vite's
+// BASE_URL (set via --base during build) and append `storage`. Fallback to '/storage'.
+const _env: any = (typeof import.meta !== 'undefined' && (import.meta as any).env) || {};
+const baseUrl = _env.BASE_URL || '/';
+const STORAGE_PATH = (_env.VITE_STORAGE_PATH && _env.VITE_STORAGE_PATH) || (baseUrl.replace(/\/+$/, '') + '/storage');
 
 async function loadManifest(): Promise<Manifest> {
   if (manifestCache) return manifestCache!;
