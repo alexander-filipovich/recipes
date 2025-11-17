@@ -69,8 +69,8 @@ export async function listObjects(prefix = ""): Promise<GcsObject[]> {
 }
 
 export function publicUrlFor(objectPath: string) {
-  // Serve from public/storage
-  return `/storage/${objectPath}`;
+  // Serve from public/storage — respect configured storage base (includes BASE_URL when built)
+  return `${STORAGE_PATH.replace(/\/+$/, '')}/${objectPath}`;
 }
 
 export async function fetchJsonForPrefix(prefix: string): Promise<any | null> {
@@ -80,8 +80,8 @@ export async function fetchJsonForPrefix(prefix: string): Promise<any | null> {
   if (candidates.length === 0) return null;
   const name = candidates[0].name;
   if (data._raw && name in data._raw) return data._raw[name];
-  // else try to fetch directly from /storage/<name>
-  const url = `/storage/${name}`;
+  // else try to fetch directly from <STORAGE_PATH>/<name>
+  const url = `${STORAGE_PATH.replace(/\/+$/, '')}/${name}`;
   const res = await fetch(url);
   if (!res.ok) return null;
   return res.json();
