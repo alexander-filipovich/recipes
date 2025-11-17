@@ -1,0 +1,82 @@
+{
+  "types": {
+    "fruits": {
+      "items": [
+        {
+          "name": "apple",
+          "objects": [
+            {
+              "name": "apple.svg",
+              "contentType": "image/svg+xml"
+            },
+            {
+              "name": "info.json",
+              "contentType": "application/json"
+            }
+          ]
+        },
+        {
+          "name": "banana",
+          "objects": [
+            {
+              "name": "banana.svg",
+              "contentType": "image/svg+xml"
+            },
+            {
+              "name": "info.json",
+              "contentType": "application/json"
+            }
+          ]
+        }
+      ]
+    },
+    "vegetables": {
+      "items": [
+        {
+          "name": "carrot",
+          "objects": [
+            {
+              "name": "carrot.svg",
+              "contentType": "image/svg+xml"
+            },
+            {
+              "name": "info.json",
+              "contentType": "application/json"
+            }
+          ]
+        },
+        {
+          "name": "tomato",
+          "objects": [
+            {
+              "name": "info.json",
+              "contentType": "application/json"
+            },
+            {
+              "name": "tomato.svg",
+              "contentType": "image/svg+xml"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "_raw": {
+    "fruits/apple/info.json": {
+      "title": "Apple",
+      "desc": "A sweet red fruit"
+    },
+    "fruits/banana/info.json": {
+      "title": "Banana",
+      "desc": "Yellow and sweet"
+    },
+    "vegetables/carrot/info.json": {
+      "title": "Carrot",
+      "desc": "Crunchy orange root"
+    },
+    "vegetables/tomato/info.json": {
+      "title": "Tomato",
+      "desc": "Juicy red tomato, great for salads and cooking."
+    }
+  }
+}
